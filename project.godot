@@ -54,7 +54,3 @@ pause={
 
 3d/size/mode=0
 3d/show_image=false
-
-[rendering]
-
-renderer/rendering_method="mobile"

@@ -1,17 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://qf8etxytsuiv"]
+[gd_scene load_steps=11 format=3 uid="uid://qf8etxytsuiv"]
 
-[ext_resource type="PackedScene" uid="uid://lfn37q6mtgat" path="res://enviroment/platform.tscn" id="1_sf7f7"]
+[ext_resource type="PackedScene" uid="uid://lfn37q6mtgat" path="res://enviroment/plataform/platform.tscn" id="1_sf7f7"]
 [ext_resource type="PackedScene" uid="uid://bs7piy45hchrn" path="res://enviroment/barrier.tscn" id="2_xt566"]
 
+[sub_resource type="Curve" id="Curve_rqxdt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1ipqy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.625767, 0.633037), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_3t67y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.493727), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_msilt"]
+curve_x = SubResource("Curve_rqxdt")
+curve_y = SubResource("Curve_1ipqy")
+curve_z = SubResource("Curve_3t67y")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q271d"]
+
 [sub_resource type="Sky" id="Sky_nya2l"]
+sky_material = SubResource("ProceduralSkyMaterial_q271d")
 
 [sub_resource type="Environment" id="Environment_hkpiv"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.913725, 0.913725, 0.913725, 1)
 sky = SubResource("Sky_nya2l")
 fog_enabled = true
 fog_light_color = Color(0.913725, 0.913725, 0.913725, 1)
 fog_density = 0.02
+adjustment_color_correction = SubResource("CurveXYZTexture_msilt")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3dh12"]
 size = Vector3(15, 15, 1)
@@ -41,3 +62,4 @@ light_color = Color(1, 0.956863, 0.839216, 1)
 shadow_enabled = true
 shadow_bias = 0.05
 shadow_normal_bias = 0.04
+directional_shadow_blend_splits = true

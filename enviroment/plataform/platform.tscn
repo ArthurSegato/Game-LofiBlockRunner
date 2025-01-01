@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://lfn37q6mtgat"]
+[gd_scene load_steps=5 format=3 uid="uid://lfn37q6mtgat"]
+
+[ext_resource type="Material" uid="uid://dd57xh1a77soi" path="res://enviroment/plataform/platform_material.tres" id="1_857rj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ddhfi"]
 friction = 0.0
@@ -7,6 +9,7 @@ friction = 0.0
 size = Vector3(15, 1, 500)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6h70n"]
+material = ExtResource("1_857rj")
 
 [node name="Platform" type="StaticBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_ddhfi")

@@ -6,13 +6,13 @@ public partial class PlayerMovement : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-        // Get input direction
+        // Use the player input as the direction the character will move
         float direction = Input.GetAxis("move_left","move_right");
 
-		// Velocity = direction * speed
+		// Velocity = direction of the movement * speed in wich will move
         Velocity = new Vector3(direction * speed, 0, 0);
 
-		// Move
+		// Move character
         MoveAndSlide();
 	}
 }
